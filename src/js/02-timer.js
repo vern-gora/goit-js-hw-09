@@ -12,8 +12,8 @@ const secondsEl = document.querySelector('[data-seconds]');
 let outDate = 0;
 
 const onCount = () => {
-  startBtn.disable = true;
-  inputEl.disable = false;
+  startBtn.disabled = true;
+  inputEl.disabled = false;
 };
 
 const options = {
@@ -64,19 +64,18 @@ flatpickr(inputEl, options);
 window.addEventListener('load', onCount);
 
 startBtn.addEventListener('click', () => {
-  inputEl.disable = true;
-  startBtn.disable = true;
-
+  inputEl.disabled = true;
+  startBtn.disabled = true;
   const timer = setInterval(() => {
     if (outDate > 1000) {
       outDate -= 1000;
       outTime(outDate);
     } else {
       clearInterval(timer);
-      inputEl.disable = false;
-      startBtn.disable = false;
+      inputEl.disabled = false;
+      startBtn.disabled = false;
     }
-  }, 500);
+  }, 1000);
 });
 
 function addLeadingZero(value) {
